@@ -1,0 +1,33 @@
+.grid-1,
+.grid-2{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 5px; 
+    row-gap: 100px;
+}
+.grid-2{
+   row-gap: 12px;
+   align-items: center;
+}
+.grid-1{
+    margin-bottom: 5px;
+}
+.js-box,
+.js-date-box,
+.add-button{
+    padding: 10px;
+    font-size: 13px;
+}
+.add-button{
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+}
+.delete-button{
+    color: white;
+    background-color: rgb(129, 2, 2);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
