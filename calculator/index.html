@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculator</title>
+    <style>
+        body{
+          background-color: black;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            margin-top: 20px;
+        }
+        button{
+           width: 60px;
+           height: 60px;
+           border: none;
+           font-size: 20px;
+           margin-right: 5px;
+           border-radius: 35px;
+           color: white;
+           background-color: rgb(64, 64, 64);
+        }
+        .operator{
+            background-color: orange;
+        }
+        .js-result{
+          color: white;
+          font-size: 45px;
+          margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="js-result"></div>
+    <div>
+        <button onclick="
+        updateValue('1');
+        ">1</button>
+
+    <button onclick="
+        updateValue('2');
+    ">2</button>
+
+    <button onclick="
+        updateValue('3');
+    ">3</button>
+
+    <button class="operator" onclick="
+        updateValue('+');
+    ">+</button>
+    </div>
+    <div>
+        <button onclick="
+        updateValue('4');
+        ">4</button>
+
+    <button onclick="
+        updateValue('5');
+    ">5</button>
+
+    <button onclick="
+        updateValue('6');
+    ">6</button>
+
+    <button class="operator" onclick="
+        updateValue('-');
+    ">-</button>
+    </div>
+    <div>
+        <button onclick="
+        updateValue('7');
+        ">7</button>
+
+    <button onclick="
+        updateValue('8');
+    ">8</button>
+
+    <button onclick="
+        updateValue('9');
+    ">9</button>
+
+    <button class="operator" onclick="
+        updateValue('*');
+    ">*</button>
+    </div>
+    <div>
+        <button onclick="
+        updateValue('0');
+        ">0</button>
+
+    <button onclick="
+        updateValue('.');
+    ">.</button>
+
+    <button onclick="
+     calculate();
+    ">=</button>
+
+    <button class="operator" onclick="
+        updateValue('/');
+    ">/</button>
+    </div>
+     <div>
+        <button onclick="
+        calculation='';
+        localStorage.removeItem('score');
+        display(calculation);
+       ">clear</button>
+     </div>
+
+    <script>
+        let calculation=localStorage.getItem('score')||'';
+        display(calculation);
+        
+        function display(calculation){
+            document.querySelector('.js-result')
+             .innerHTML=calculation;
+        }
+        function updateValue(value){
+            calculation+=value;
+            storeValue(calculation);
+            display(calculation);
+        }
+        function calculate(){
+            calculation=eval(calculation);
+            storeValue(calculation);
+            display(calculation);
+        }
+        function storeValue(){
+            localStorage.setItem('score',calculation);
+        }
+
+    </script>
+
+</body>
+</html>
